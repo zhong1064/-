@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <button>按钮</button> 
+</body>
+<script>
+   let btn = document.querySelector('button');
+   // 声明一个对象
+   let obj = {};
+     // 把对象的上的某个属性赋值为数组
+    obj['login'] = [];
+  // 然后往 对象的该属性存入其他的方法
+ function fn1(){
+     console.log('1期100行代码');
+     
+ }
+  obj['login'].push(fn1);
+
+  function fn2(){
+      console.log('2期80行代码');
+      
+  }
+  obj['login'].push(fn2);
+  function fn3(){
+      console.log('3期120行代码');
+      
+  }
+  obj['login'].push(fn3);
+
+  // 当点击按钮时一次调用该属性上存的方法
+  btn.onclick = function(){
+      for(let i = 0; i < obj['login'].length; i++){
+          obj['login'][i]();
+      }
+  }
+</script>
+</html>
